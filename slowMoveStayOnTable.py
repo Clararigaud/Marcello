@@ -190,9 +190,9 @@ if __name__ == '__main__':
 			print("AAAH DEMI TOUUUUR")
 			while(edgeDetected()):
 				Bot.backward()
-			time.sleep(10)
+			time.sleep(1)
 			Bot.left()
-			time.sleep(10)
+			time.sleep(1)
 		else :
 			print("FUUFUFU LIFE'S NICE")
 			Bot.forward()

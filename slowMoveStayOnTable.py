@@ -193,7 +193,7 @@ if __name__ == '__main__':
 			while(edgeDetected()):
 				Bot.backward()
 				time.sleep(0.2)
-			time.sleep(0.5)
+			time.sleep(0.1)
 			Bot.setPWMA(8)
 			Bot.setPWMB(8)
 			Bot.left()

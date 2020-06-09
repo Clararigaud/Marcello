@@ -175,8 +175,9 @@ if __name__ == '__main__':
 	while True:
 		tableEdge = False
 		sensors = TR.AnalogRead()
+		print(sensors)
 		for s in sensors : 
-			if s > 100 :
+			if s < 100 :
 				 tableEdge = True
 				 break
 

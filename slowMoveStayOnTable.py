@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import RPi.GPIO as GPIO
 import time
-import AlphaBot_clara.py
+import AlphaBot_clara
 CS = 5
 Clock = 25
 Address = 24
@@ -170,9 +170,21 @@ class TRSensor(object):
 # Simple example prints accel/mag data once per second:
 if __name__ == '__main__':
 	TR = TRSensor()
-	Bot = Alp
+	Bot = AlphaBot2()
+	Bot.PA = Bot.PB = 5
 	while True:
+		tableEdge = False
 		sensors = TR.AnalogRead()
+		for s in sensors : 
+			if s > 100 :
+				 tableEdge = True
+				 break
+
+		if tableEdge :
+			Bot.left()
+		else :
+			bot.forward()
 		time.sleep(0.2)
+
 
 			 

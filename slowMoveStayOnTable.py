@@ -171,7 +171,7 @@ class TRSensor(object):
 if __name__ == '__main__':
 	TR = TRSensor()
 	Bot = AlphaBot_clara.AlphaBot2()
-	Bot.PA = 40
+	Bot.PA = 30
 	Bot.PB = Bot.PA
 	while True:
 		tableEdge = False

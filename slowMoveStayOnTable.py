@@ -171,8 +171,8 @@ class TRSensor(object):
 if __name__ == '__main__':
 	TR = TRSensor()
 	Bot = AlphaBot_clara.AlphaBot2()
-	Bot.setPWMA(5)
-	Bot.setPWMB(5)
+	Bot.setPWMA(10)
+	Bot.setPWMB(10)
 	while True:
 		tableEdge = False
 		sensors = TR.AnalogRead()
@@ -184,8 +184,9 @@ if __name__ == '__main__':
 
 		if tableEdge :
 			Bot.backward()
-			time.sleep(0.5)
+			time.sleep(1)
 			Bot.left()
+			time.sleep(1)
 		else :
 			Bot.forward()
 		time.sleep(0.2)

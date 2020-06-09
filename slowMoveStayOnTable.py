@@ -169,11 +169,11 @@ class TRSensor(object):
 def edgeDetected():
 	tableEdge = False
 	sensors = TR.AnalogRead()
-		print(sensors)
-		for s in sensors : 
-			if s < 150 :
-				 tableEdge = True
-				 break
+	print(sensors)
+	for s in sensors : 
+		if s < 150 :
+			tableEdge = True
+			break
 	return tableEdge
 
 # Simple example prints accel/mag data once per second:

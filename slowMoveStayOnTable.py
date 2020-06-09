@@ -171,13 +171,14 @@ class TRSensor(object):
 if __name__ == '__main__':
 	TR = TRSensor()
 	Bot = AlphaBot_clara.AlphaBot2()
-	Bot.PA = Bot.PB = 5
+	Bot.PA = 40
+	Bot.PB = Bot.PA
 	while True:
 		tableEdge = False
 		sensors = TR.AnalogRead()
 		print(sensors)
 		for s in sensors : 
-			if s < 100 :
+			if s < 200 :
 				 tableEdge = True
 				 break
 

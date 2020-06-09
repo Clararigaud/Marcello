@@ -180,8 +180,8 @@ def edgeDetected():
 if __name__ == '__main__':
 	TR = TRSensor()
 	Bot = AlphaBot_clara.AlphaBot2()
-	Bot.setPWMA(15)
-	Bot.setPWMB(15)
+	Bot.setPWMA(8)
+	Bot.setPWMB(8)
 	while True:
 		tableEdge = False
 		tableEdge  = edgeDetected()

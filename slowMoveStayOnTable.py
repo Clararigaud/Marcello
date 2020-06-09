@@ -166,6 +166,15 @@ class TRSensor(object):
 		return self.last_value,sensor_values
 	
 
+def edgeDetected():
+	tableEdge = False
+	sensors = TR.AnalogRead()
+		print(sensors)
+		for s in sensors : 
+			if s < 150 :
+				 tableEdge = True
+				 break
+	return tableEdge
 
 # Simple example prints accel/mag data once per second:
 if __name__ == '__main__':
@@ -175,19 +184,16 @@ if __name__ == '__main__':
 	Bot.setPWMB(10)
 	while True:
 		tableEdge = False
-		sensors = TR.AnalogRead()
-		print(sensors)
-		for s in sensors : 
-			if s < 100 :
-				 tableEdge = True
-				 break
+		tableEdge  = edgeDetected()
 
 		if tableEdge :
-			Bot.backward()
-			time.sleep(1)
+			print("AAAH DEMI TOUUUUR")
+			while(edgeDetected()):
+				Bot.backward()
 			Bot.left()
 			time.sleep(1)
 		else :
+			print("FUUFUFU LIFE'S NICE")
 			Bot.forward()
 		time.sleep(0.2)
 

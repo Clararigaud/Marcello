@@ -184,7 +184,7 @@ if __name__ == '__main__':
 		if tableEdge :
 			Bot.left()
 		else :
-			bot.forward()
+			Bot.forward()
 		time.sleep(0.2)
 
 

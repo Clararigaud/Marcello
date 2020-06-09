@@ -170,7 +170,7 @@ class TRSensor(object):
 # Simple example prints accel/mag data once per second:
 if __name__ == '__main__':
 	TR = TRSensor()
-	Bot = AlphaBot2()
+	Bot = AlphaBot_clara.AlphaBot2()
 	Bot.PA = Bot.PB = 5
 	while True:
 		tableEdge = False

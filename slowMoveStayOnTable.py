@@ -188,9 +188,12 @@ if __name__ == '__main__':
 
 		if tableEdge :
 			print("AAAH DEMI TOUUUUR")
+			Bot.setPWMA(50)
+			Bot.setPWMB(50)
 			while(edgeDetected()):
 				Bot.backward()
-			time.sleep(1)
+			Bot.setPWMA(8)
+			Bot.setPWMB(8)
 			Bot.left()
 			time.sleep(1)
 		else :

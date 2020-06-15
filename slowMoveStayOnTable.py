@@ -1,4 +1,7 @@
 #!/usr/bin/python
+# Free walk ( go forward, turn when edge of the table detected) Only using ir sensors located under the robot ( not very effective )
+
+
 # -*- coding:utf-8 -*-
 import RPi.GPIO as GPIO
 import time

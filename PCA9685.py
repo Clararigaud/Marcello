@@ -88,7 +88,10 @@ class PCA9685:
     hori_angle = int(255 - msb_phi*(phi*255/90))
     vert_angle = int(255 - msb_theta*(theta*255/90))
 
-
+    print("msb_phi: ",msb_phi)
+    print("hori_angle: ",hori_angle)
+    print("msb_theta: ",msb_theta)
+    print("vert_angle: ",vert_angle)
     #horizontale phi
     self.write(self.__LED0_ON_L, 0 & 0xFF)
     self.write(self.__LED0_ON_H, 0 >> 8)

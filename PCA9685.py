@@ -96,13 +96,13 @@ class PCA9685:
     #horizontale phi
     self.write(self.__LED0_ON_L, 0 & 0xFF)
     self.write(self.__LED0_ON_H, 0 >> 8)
-    self.write(self.__LED0_OFF_L, hori_angle) # 0-255
+    self.write(self.__LED0_OFF_L, hori_angle & 0xFF) # 0-255
     self.write(self.__LED0_OFF_H, msb_phi >> 8) # 0,1
 
     #Vertical  theta
     self.write(self.__LED0_ON_L+4, 0 & 0xFF)
     self.write(self.__LED0_ON_H+4, 0 >> 8)
-    self.write(self.__LED0_OFF_L+4, vert_angle) # 0-255
+    self.write(self.__LED0_OFF_L+4, vert_angle & 0xFF ) # 0-255
     self.write(self.__LED0_OFF_H+4, msb_theta >> 8)# 0,1,2
 
   def getPWM(self, channel):

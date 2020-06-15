@@ -32,21 +32,21 @@ def sayYes(step = 20, numberTime = 2):
 		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 
-def sayNo(step = 10, numberTime = 2):
+def sayNo(step = 30, numberTime = 2):
 	HPulse = 1500
 	initialPos = HPulse
 	while(HPulse<2500):
 		HPulse += step
 		pwm.setServoPulse(0,HPulse)
-
+		print(pwm.getServoPulse(0))
 	while(HPulse>500):
 		HPulse -= step
 		pwm.setServoPulse(0,HPulse)
-
+		print(pwm.getServoPulse(0))
 	while(HPulse<initialPos):
 		HPulse += step
 		pwm.setServoPulse(0,HPulse)
-
+		print(pwm.getServoPulse(0))
 if __name__=='__main__':
 	pwm = PCA9685(0x40)
 	pwm.setPWMFreq(50)
@@ -60,4 +60,4 @@ if __name__=='__main__':
 	sayYes()
 	# sayYes()
 	# sayYes()
-	#sayNo()
+	sayNo()

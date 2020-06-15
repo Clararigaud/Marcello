@@ -81,7 +81,7 @@ class PCA9685:
     pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, int(pulse))
   
-  def getPWM(self, channel, on, off):
+  def getPWM(self, channel):
     "Gets a single PWM channel"
     print(self.read(self.__LED0_ON_L+4*channel))
     print(self.read(self.__LED0_ON_H+4*channel))

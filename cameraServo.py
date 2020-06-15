@@ -7,14 +7,17 @@ def sayYes(step = 5, numberTime = 2):
 	while(VPulse<2500):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
+		pwm.getServoPulse(1)
 
 	while(VPulse>500):
 		VPulse -= step
 		pwm.setServoPulse(1,VPulse)
+		pwm.getServoPulse(1)
 
 	while(VPulse<initialPos):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
+		pwm.getServoPulse(1)
 
 def sayNo(step = 10, numberTime = 2):
 	HPulse = 1500
@@ -41,7 +44,7 @@ if __name__=='__main__':
 	pwm.setServoPulse(1,VPulse)
 	pwm.setServoPulse(0,HPulse)
 
-	sayYes()
-	sayYes()
-	sayYes()
+	# sayYes()
+	# sayYes()
+	# sayYes()
 	#sayNo()

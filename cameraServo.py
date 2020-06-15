@@ -3,24 +3,25 @@ from PCA9685 import PCA9685
 import time
 
 def sayYes(step = 5, numberTime = 2):
-	VPulse = pwm.getServoPulse(1)
+	VPulse = 1500
+	pwm.setServoPulse(1,VPulse)
 	initialPos = VPulse
 	while(VPulse<2500):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
-		pwm.getServoPulse(1)
+		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 
 	while(VPulse>500):
 		VPulse -= step
 		pwm.setServoPulse(1,VPulse)
-		pwm.getServoPulse(1)
+		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 
 	while(VPulse<initialPos):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
-		pwm.getServoPulse(1)
+		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 
 def sayNo(step = 10, numberTime = 2):

@@ -83,10 +83,10 @@ class PCA9685:
   
   def getPWM(self, channel):
     "Gets a single PWM channel"
-    print(self.read(self.__LED0_ON_L+4*channel))
-    print(self.read(self.__LED0_ON_H+4*channel))
-    print(self.read(self.__LED0_OFF_L+4*channel))
-    print(self.read(self.__LED0_OFF_H+4*channel))
+    print("LED0_ON_L", self.read(self.__LED0_ON_L+4*channel))
+    print("LED0_ON_H", self.read(self.__LED0_ON_H+4*channel))
+    print("LED0_OFF_L", self.read(self.__LED0_OFF_L+4*channel))
+    print("LED0_OFF_H", self.read(self.__LED0_OFF_H+4*channel))
     return self.read(self.__LED0_OFF_L+4*channel)
 
   def getServoPulse(self, channel):

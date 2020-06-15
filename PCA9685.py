@@ -81,10 +81,28 @@ class PCA9685:
     pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, int(pulse))
   
+  def lookAt(self, theta, phi):
+    msb_phi = int(math.sin(math.pi*phi/180)<0)
+    msb_theta = int(math.sin(math.pi*theta/180)<0)
+
+    hori_angle = 255 - msb_phi*(phi*255/90)
+    vert_angle = 255 - msb_theta*(theta*255/90)
+
+    
+    #horizontale phi
+    self.write(self.__LED0_ON_L, 0 & 0xFF)
+    self.write(self.__LED0_ON_H, 0 >> 8)
+    self.write(self.__LED0_OFF_L, off & 0xFF) # 0-255
+    self.write(self.__LED0_OFF_H, msb_phi >> 8) # 0,1
+
+    #Vertical  theta
+    self.write(self.__LED0_ON_L+4, 0 & 0xFF)
+    self.write(self.__LED0_ON_H+4, 0 >> 8)
+    self.write(self.__LED0_OFF_L+4, off & 0xFF) # 0-255
+    self.write(self.__LED0_OFF_H+4, off >> 8)# 0,1,2
+
   def getPWM(self, channel):
     "Gets a single PWM channel"
-    print("LED0_ON_L", self.read(self.__LED0_ON_L+4*channel))
-    print("LED0_ON_H", self.read(self.__LED0_ON_H+4*channel))
     print("LED0_OFF_L", self.read(self.__LED0_OFF_L+4*channel))
     print("LED0_OFF_H", self.read(self.__LED0_OFF_H+4*channel))
     return self.read(self.__LED0_OFF_L+4*channel)

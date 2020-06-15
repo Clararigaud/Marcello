@@ -89,6 +89,8 @@ class PCA9685:
     hori_angle = int(255 + msb_phi*(phi*255/90))
     vert_angle = int(255 + msb_theta*(theta*255/90))
 
+    if hori_angle == 0 : msb_phi = 2 
+    if vert_angle == 0 : msb_theta = 2 
     print("msb_phi: ",msb_phi)
     print("hori_angle: ",hori_angle)
     print("msb_theta: ",msb_theta)

@@ -48,7 +48,7 @@ def sayNo(step = 30, numberTime = 2):
 		pwm.setServoPulse(0,HPulse)
 		print(pwm.getServoPulse(0))
 if __name__=='__main__':
-	pwm = PCA9685(0x40)
+	pwm = PCA9685(0x40, True)
 	pwm.setPWMFreq(50)
 
 	# pwm.lookAt(0,0)
@@ -70,7 +70,7 @@ if __name__=='__main__':
 	# pwm.lookAt(0,-90)
 
 	# time.sleep(2)
-	
+
 	# pwm.lookAt(0,90)
 
 	# time.sleep(2)

@@ -80,6 +80,18 @@ class PCA9685:
     "Sets the Servo Pulse,The PWM frequency must be 50HZ"
     pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, int(pulse))
+  
+  def getPWM(self, channel, on, off):
+    "Gets a single PWM channel"
+    print(self.read(self.__LED0_ON_L+4*channel))
+    print(self.read(self.__LED0_ON_H+4*channel))
+    print(self.read(self.__LED0_OFF_L+4*channel))
+    print(self.read(self.__LED0_OFF_H+4*channel))
+    return self.read(self.__LED0_OFF_L+4*channel)
+
+  def getServoPulse(self, channel):
+    pulse = float(self.getPWM(channel))/4096*20000 
+    return pulse
 
 if __name__=='__main__':
  

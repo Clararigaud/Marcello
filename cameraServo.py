@@ -2,6 +2,7 @@
 from PCA9685 import PCA9685
 
 def sayYes(step = 10, numberTime = 2):
+	VPulse = 1500
 	initialPos = VPulse
 	while(VPulse<2500):
 		VPulse += step
@@ -16,6 +17,7 @@ def sayYes(step = 10, numberTime = 2):
 		pwm.setServoPulse(1,VPulse)
 
 def sayNo(step = 10, numberTime = 2):
+	HPulse = 1500
 	initialPos = HPulse
 	while(HPulse<2500):
 		HPulse += step

@@ -51,36 +51,36 @@ if __name__=='__main__':
 	pwm = PCA9685(0x40)
 	pwm.setPWMFreq(50)
 
-	pwm.lookAt(0,0)
+	# pwm.lookAt(0,0)
 
-	time.sleep(2)
+	# time.sleep(2)
 
-	pwm.lookAt(-90,0)
+	# pwm.lookAt(-90,0)
 
-	time.sleep(2)
+	# time.sleep(2)
 
-	pwm.lookAt(90,0)
+	# pwm.lookAt(90,0)
 
-	time.sleep(2)
+	# time.sleep(2)
 
-	pwm.lookAt(0,0)
+	# pwm.lookAt(0,0)
 
-	time.sleep(2)
+	# time.sleep(2)
 
-	pwm.lookAt(0,-90)
+	# pwm.lookAt(0,-90)
 
-	time.sleep(2)
+	# time.sleep(2)
 	
-	pwm.lookAt(0,90)
+	# pwm.lookAt(0,90)
 
-	time.sleep(2)
-	# HPulse = 0  #Sets the initial Pulse 500-2500
-	# VPulse = 0  #Sets the initial Pulse 500-2500
+	# time.sleep(2)
+	HPulse = 0  #Sets the initial Pulse 500-2500
+	VPulse = 0  #Sets the initial Pulse 500-2500
 
-	# pwm.setServoPulse(1,VPulse)
-	# pwm.setServoPulse(0,HPulse)
+	pwm.setServoPulse(1,VPulse)
+	pwm.setServoPulse(0,HPulse)
 
-	# sayYes()
+	sayYes()
 	# # sayYes()
 	# # sayYes()
 	# sayNo()

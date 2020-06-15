@@ -85,10 +85,10 @@ class PCA9685:
     msb_phi = int(math.sin(math.pi*phi/180)<0)
     msb_theta = int(math.sin(math.pi*theta/180)<0)
 
-    hori_angle = 255 - msb_phi*(phi*255/90)
-    vert_angle = 255 - msb_theta*(theta*255/90)
+    hori_angle = int(255 - msb_phi*(phi*255/90))
+    vert_angle = int(255 - msb_theta*(theta*255/90))
 
-    
+
     #horizontale phi
     self.write(self.__LED0_ON_L, 0 & 0xFF)
     self.write(self.__LED0_ON_H, 0 >> 8)

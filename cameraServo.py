@@ -7,22 +7,22 @@ def sayYes(step = 20, numberTime = 2):
 	pwm.setServoPulse(1,VPulse)
 	time.sleep(0.2)
 	initialPos = VPulse
-	print("up\n\n")
+	print("doan\n\n")
 	while(VPulse<2500):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
 		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 	input()
-	print("down\n\n")
+	print("up\n\n")
 	while(VPulse>500):
 		VPulse -= step
 		pwm.setServoPulse(1,VPulse)
 		print(pwm.getServoPulse(1))
 		time.sleep(0.02)    
 	input()
-	print("up\n\n")
-	while(VPulse<initialPos):
+	print("down\n\n")
+	while(VPulse<2500):
 		VPulse += step
 		pwm.setServoPulse(1,VPulse)
 		print(pwm.getServoPulse(1))

@@ -1,8 +1,8 @@
 # camera servo
 from PCA9685 import PCA9685
 
-def sayYes(step = 10, numberTime = 2):
-	VPulse = 1500
+def sayYes(step = 5, numberTime = 2):
+	VPulse = pwm.getServoPulse()
 	initialPos = VPulse
 	while(VPulse<2500):
 		VPulse += step
@@ -42,4 +42,6 @@ if __name__=='__main__':
 	pwm.setServoPulse(0,HPulse)
 
 	sayYes()
-	sayNo()
+	sayYes()
+	sayYes()
+	#sayNo()

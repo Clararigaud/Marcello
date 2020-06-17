@@ -117,7 +117,6 @@ class PCA9685:
     return pulse
 
   def stop(self):
-      self.logger.debug("Stopping PCA9685")
       self.write(self.__MODE1, 0x00)
       self.write(self.__PRESCALE, 0x00)
       self.setPWM(0, 0, 0)

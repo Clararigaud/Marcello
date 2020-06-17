@@ -5,25 +5,33 @@ import math
 
 pwm = PCA9685(0x40, True)
 pwm.setPWMFreq(50)
-def sayYes():
+
+def sayYes(r = 60, c = [0,0], speed = 1):
 	i = 0
-	r = 90
-	c = [0,0]
 	while True : 
 		phi = c[1]+math.cos(i)*r
 		pwm.lookAt(c[0], phi)
-		i+=1
+		i+=speed
 		time.sleep(0.02)
 
-def sayNo():
+def sayNo(r = 60, c = [0,0], speed = 1):
 	i = 0
-	r = 90
-	c = [0,0]
 	while True : 
 		theta = c[0]+math.cos(i)*r
 		pwm.lookAt(theta, c[1])
-		i+=1
+		i+=speed
 		time.sleep(0.02)
+
+
+def spinningHead(r = 60, c = [0,0], speed = 1):
+	i = 0
+	while True : 
+		theta = c[0]+math.cos(i)*r
+		phi =   c[1]+math.sin(i)*r
+		pwm.lookAt(theta, phi)
+		i+=speed
+		time.sleep(0.02)
+
 if __name__=='__main__':
 
 

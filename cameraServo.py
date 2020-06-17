@@ -2,6 +2,9 @@
 from PCA9685 import PCA9685
 import time
 import math
+
+pwm = PCA9685(0x40, True)
+pwm.setPWMFreq(50)
 def sayYes():
 	i = 0
 	r = 90
@@ -18,8 +21,7 @@ def sayNo():
 		theta = c[0]+math.cos(i)*r
 		pwm.lookAt(theta, c[1])
 if __name__=='__main__':
-	pwm = PCA9685(0x40, True)
-	pwm.setPWMFreq(50)
+
 
 
 	#Center

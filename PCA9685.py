@@ -116,12 +116,13 @@ class PCA9685:
     pulse = float(self.getPWM(channel))/4096*20000 
     return pulse
 
-    def stop(self, channel):
-        self.logger.debug("Stopping PCA9685")
-        self.write(self.__MODE1, 0x00)
-        self.write(self.__PRESCALE, 0x00)
-        self.setPWM(channel, 0, 0)
-        
+  def stop(self):
+      self.logger.debug("Stopping PCA9685")
+      self.write(self.__MODE1, 0x00)
+      self.write(self.__PRESCALE, 0x00)
+      self.setPWM(0, 0, 0)
+      self.setPWM(1, 0, 0)
+
 if __name__=='__main__':
  
   pwm = PCA9685(0x40, debug=True)

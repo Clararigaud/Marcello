@@ -11,19 +11,17 @@ import smbus
 class PCA9685:
 
   # Registers/etc.
-  __SUBADR1            = 0x02
-  __SUBADR2            = 0x03
-  __SUBADR3            = 0x04
-  __MODE1              = 0x00
-  __PRESCALE           = 0xFE
-  __LED0_ON_L          = 0x06
-  __LED0_ON_H          = 0x07
-  __LED0_OFF_L         = 0x08
-  __LED0_OFF_H         = 0x09
-  __ALLLED_ON_L        = 0xFA
-  __ALLLED_ON_H        = 0xFB
-  __ALLLED_OFF_L       = 0xFC
-  __ALLLED_OFF_H       = 0xFD
+  __MODE1              = 0x00 # Mode register 1
+  __PRESCALE           = 0xFE # prescaler for PWM output frequency
+  __LED0_ON_L          = 0x06 # LED0 output and brightness control byte 0
+  __LED0_ON_H          = 0x07 # LED0 output and brightness control byte 1
+  __LED0_OFF_L         = 0x08 # LED0 output and brightness control byte 2
+  __LED0_OFF_H         = 0x09 # LED0 output and brightness control byte 3
+
+  __LED1_ON_L          = 0x0A # LED1 output and brightness control byte 0
+  __LED1_ON_H          = 0x0B # LED1 output and brightness control byte 1
+  __LED1_OFF_L         = 0x0C # LED1 output and brightness control byte 2
+  __LED1_OFF_H         = 0x0D # LED1 output and brightness control byte 3
 
   def __init__(self, address=0x40, debug=False):
     self.bus = smbus.SMBus(1)
@@ -78,8 +76,8 @@ class PCA9685:
 	  
   def setServoPulse(self, channel, pulse):
     "Sets the Servo Pulse,The PWM frequency must be 50HZ"
-    pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
-    print(pulse)
+    pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us nb bits / period 1/f = 0,2 ms
+    #print(pulse)
     self.setPWM(channel, 0, int(pulse))
   
   def lookAt(self, theta, phi):
@@ -95,6 +93,7 @@ class PCA9685:
     print("hori_angle: ",hori_angle)
     print("msb_theta: ",msb_theta)
     print("vert_angle: ",vert_angle)
+    
     #horizontale phi
     self.write(self.__LED0_ON_L, 0 & 0xFF)
     self.write(self.__LED0_ON_H, 0 >> 8)
@@ -102,10 +101,10 @@ class PCA9685:
     self.write(self.__LED0_OFF_H, msb_phi >> 8) # 0,1
 
     #Vertical  theta
-    self.write(self.__LED0_ON_L+4, 0 & 0xFF)
-    self.write(self.__LED0_ON_H+4, 0 >> 8)
-    self.write(self.__LED0_OFF_L+4, vert_angle & 0xFF ) # 0-255
-    self.write(self.__LED0_OFF_H+4, msb_theta >> 8)# 0,1,2
+    self.write(self.__LED1_ON_L, 0 & 0xFF)
+    self.write(self.__LED1_ON_H, 0 >> 8)
+    self.write(self.__LED1_OFF_L, vert_angle & 0xFF ) # 0-255
+    self.write(self.__LED1_OFF_H, msb_theta >> 8)# 0,1,2
 
   def getPWM(self, channel):
     "Gets a single PWM channel"
@@ -117,6 +116,12 @@ class PCA9685:
     pulse = float(self.getPWM(channel))/4096*20000 
     return pulse
 
+    def stop(self, channel):
+        self.logger.debug("Stopping PCA9685")
+        self.write(self.__MODE1, 0x00)
+        self.write(self.__PRESCALE, 0x00)
+        self.setPWM(channel, 0, 0)
+        
 if __name__=='__main__':
  
   pwm = PCA9685(0x40, debug=True)

@@ -51,29 +51,83 @@ if __name__=='__main__':
 	pwm = PCA9685(0x40, True)
 	pwm.setPWMFreq(50)
 
-	pwm.lookAt(3,3)
+
+	#Center
+	maxR = 2500
+	minR = 500
+
+	#H
+	pwm.setServoPulse(0,maxR-minR)
+	print(pwm.getServoPulse(0))
+	#V
+	pwm.setServoPulse(1,maxR-minR)
+	print(pwm.getServoPulse(1))
 
 	time.sleep(2)
 
-	pwm.lookAt(-60,3)
+
+	#LEFT
+	#H
+	pwm.setServoPulse(0,maxR)
+	print(pwm.getServoPulse(0))
+	#V
+	pwm.setServoPulse(1,maxR-minR)
+	print(pwm.getServoPulse(1))
+
 
 	time.sleep(2)
 
-	pwm.lookAt(60,3)
+	#H
+	pwm.setServoPulse(0,minR)
+	print(pwm.getServoPulse(0))
+	#V
+	pwm.setServoPulse(1,maxR-minR)
+	print(pwm.getServoPulse(1))
+
 
 	time.sleep(2)
 
-	pwm.lookAt(3,3)
+	#H
+	pwm.setServoPulse(0,maxR-minR)
+	print(pwm.getServoPulse(0))
+	#V
+	pwm.setServoPulse(1,maxR)
+	print(pwm.getServoPulse(1))
+
 
 	time.sleep(2)
 
-	pwm.lookAt(3,-60)
+	#H
+	pwm.setServoPulse(0,maxR-minR)
+	print(pwm.getServoPulse(0))
+	#V
+	pwm.setServoPulse(1,minR)
+	print(pwm.getServoPulse(1))
 
-	time.sleep(2)
+	# pwm.lookAt(3,3)
 
-	pwm.lookAt(3,60)
 
-	time.sleep(2)
+	# pwm.lookAt(-60,3)
+
+	# time.sleep(2)
+
+	# pwm.lookAt(60,3)
+
+	# time.sleep(2)
+
+	# pwm.lookAt(3,3)
+
+	# time.sleep(2)
+
+	# pwm.lookAt(3,-60)
+
+	# time.sleep(2)
+
+	# pwm.lookAt(3,60)
+
+	# time.sleep(2)
+
+	pwm.stop()
 	# HPulse = 0  #Sets the initial Pulse 500-2500
 	# VPulse = 0  #Sets the initial Pulse 500-2500
 

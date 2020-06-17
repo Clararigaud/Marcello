@@ -81,30 +81,15 @@ class PCA9685:
     self.setPWM(channel, 0, int(pulse))
   
   def lookAt(self, theta, phi):
-    msb_phi = int(math.sin(math.pi*phi/180)<0)
-    msb_theta = int(math.sin(math.pi*theta/180)<0)
+    hpulse = ((theta+180)/360)*3000+500
+    vpulse = ((-phi+180)/360)*3000+500
 
-    hori_angle = int(255 + msb_phi*(phi*255/90))
-    vert_angle = int(255 + msb_theta*(theta*255/90))
 
-    if hori_angle == 0 : msb_phi = 2 
-    if vert_angle == 0 : msb_theta = 2 
-    print("msb_phi: ",msb_phi)
-    print("hori_angle: ",hori_angle)
-    print("msb_theta: ",msb_theta)
-    print("vert_angle: ",vert_angle)
-    
-    #horizontale phi
-    self.write(self.__LED0_ON_L, 0 & 0xFF)
-    self.write(self.__LED0_ON_H, 0 >> 8)
-    self.write(self.__LED0_OFF_L, hori_angle & 0xFF) # 0-255
-    self.write(self.__LED0_OFF_H, msb_phi >> 8) # 0,1
+    self.setServoPulse(0,hpulse)
+    self.setServoPulse(1,vpulse)
 
-    #Vertical  theta
-    self.write(self.__LED1_ON_L, 0 & 0xFF)
-    self.write(self.__LED1_ON_H, 0 >> 8)
-    self.write(self.__LED1_OFF_L, vert_angle & 0xFF ) # 0-255
-    self.write(self.__LED1_OFF_H, msb_theta >> 8)# 0,1,2
+    self.setServoPulse(0,0)
+    self.setServoPulse(1,0)
 
   def getPWM(self, channel):
     "Gets a single PWM channel"

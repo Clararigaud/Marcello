@@ -57,10 +57,10 @@ if __name__=='__main__':
 	minR = 500
 
 	#H
-	pwm.setServoPulse(0,maxR-minR)
+	pwm.setServoPulse(0,(maxR-minR)/2)
 	print(pwm.getServoPulse(0))
 	#V
-	pwm.setServoPulse(1,maxR-minR)
+	pwm.setServoPulse(1,(maxR-minR)/2)
 	print(pwm.getServoPulse(1))
 
 	time.sleep(2)
@@ -71,7 +71,7 @@ if __name__=='__main__':
 	pwm.setServoPulse(0,maxR)
 	print(pwm.getServoPulse(0))
 	#V
-	pwm.setServoPulse(1,maxR-minR)
+	pwm.setServoPulse(1,(maxR-minR)/2)
 	print(pwm.getServoPulse(1))
 
 
@@ -81,14 +81,14 @@ if __name__=='__main__':
 	pwm.setServoPulse(0,minR)
 	print(pwm.getServoPulse(0))
 	#V
-	pwm.setServoPulse(1,maxR-minR)
+	pwm.setServoPulse(1,(maxR-minR)/2)
 	print(pwm.getServoPulse(1))
 
 
 	time.sleep(2)
 
 	#H
-	pwm.setServoPulse(0,maxR-minR)
+	pwm.setServoPulse(0,(maxR-minR)/2)
 	print(pwm.getServoPulse(0))
 	#V
 	pwm.setServoPulse(1,maxR)
@@ -98,7 +98,7 @@ if __name__=='__main__':
 	time.sleep(2)
 
 	#H
-	pwm.setServoPulse(0,maxR-minR)
+	pwm.setServoPulse(0,(maxR-minR)/2)
 	print(pwm.getServoPulse(0))
 	#V
 	pwm.setServoPulse(1,minR)

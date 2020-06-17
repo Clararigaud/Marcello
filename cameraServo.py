@@ -1,52 +1,22 @@
 # camera servo
 from PCA9685 import PCA9685
 import time
+import math
+def sayYes():
+	i = 0
+	r = 90
+	c = [0,0]
+	while True : 
+		phi = c[1]+math.cos(i)*r
+		pwm.lookAt(c[0], phi)
 
-def sayYes(step = 20, numberTime = 2):
-	VPulse = 500
-	pwm.setServoPulse(1,VPulse)
-	time.sleep(0.2)
-	initialPos = VPulse
-	print("vpulse: ", VPulse)
-	print("doan\n\n")
-	while(VPulse<2500):
-		VPulse += step
-		print("vpulse: ", VPulse)
-		pwm.setServoPulse(1,VPulse)
-		print(pwm.getServoPulse(1))
-		time.sleep(0.02)    
-	input()
-	print("up\n\n")
-	while(VPulse>500):
-		print("vpulse: ", VPulse)
-		VPulse -= step
-		pwm.setServoPulse(1,VPulse)
-		print(pwm.getServoPulse(1))
-		time.sleep(0.02)    
-	input()
-	print("down\n\n")
-	while(VPulse<2500):
-		print("vpulse: ", VPulse)
-		VPulse += step
-		pwm.setServoPulse(1,VPulse)
-		print(pwm.getServoPulse(1))
-		time.sleep(0.02)    
-
-def sayNo(step = 30, numberTime = 2):
-	HPulse = 1500
-	initialPos = HPulse
-	while(HPulse<2500):
-		HPulse += step
-		pwm.setServoPulse(0,HPulse)
-		print(pwm.getServoPulse(0))
-	while(HPulse>500):
-		HPulse -= step
-		pwm.setServoPulse(0,HPulse)
-		print(pwm.getServoPulse(0))
-	while(HPulse<initialPos):
-		HPulse += step
-		pwm.setServoPulse(0,HPulse)
-		print(pwm.getServoPulse(0))
+def sayNo():
+	i = 0
+	r = 90
+	c = [0,0]
+	while True : 
+		theta = c[0]+math.cos(i)*r
+		pwm.lookAt(theta, c[1])
 if __name__=='__main__':
 	pwm = PCA9685(0x40, True)
 	pwm.setPWMFreq(50)

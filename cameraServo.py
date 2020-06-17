@@ -12,6 +12,7 @@ def sayYes():
 	while True : 
 		phi = c[1]+math.cos(i)*r
 		pwm.lookAt(c[0], phi)
+		time.sleep(0.2)
 
 def sayNo():
 	i = 0
@@ -20,6 +21,7 @@ def sayNo():
 	while True : 
 		theta = c[0]+math.cos(i)*r
 		pwm.lookAt(theta, c[1])
+		time.sleep(0.2)
 if __name__=='__main__':
 
 

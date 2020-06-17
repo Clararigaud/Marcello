@@ -88,8 +88,8 @@ class PCA9685:
     self.setServoPulse(0,hpulse)
     self.setServoPulse(1,vpulse)
 
-    self.setServoPulse(0,0)
-    self.setServoPulse(1,0)
+    # self.setServoPulse(0,0)
+    # self.setServoPulse(1,0)
 
   def getPWM(self, channel):
     "Gets a single PWM channel"

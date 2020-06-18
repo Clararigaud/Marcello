@@ -27,7 +27,7 @@ if __name__ == '__main__':
 			print("AAAH DEMI TOUUUUR")
 			Bot.setPWMA(50)
 			Bot.setPWMB(50)
-			while(edgeDetected()):
+			while(edgeDetected(Bot)):
 				Bot.backward()
 			time.sleep(0.1)
 			Bot.setPWMA(8)

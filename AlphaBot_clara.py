@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import Alphabot
+import AlphaBot
 class AlphaBot2(Alphabot):
 	def lookAt(self, theta, phi):
 		pass

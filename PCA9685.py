@@ -79,20 +79,6 @@ class PCA9685:
     pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us nb bits / period 1/f = 0,2 ms
     #print(pulse)
     self.setPWM(channel, 0, int(pulse))
-  
-  def lookAt(self, theta, phi):
-    hpulse = ((theta+180)/360)*2000+500
-    vpulse = ((-phi+180)/360)*2000+500
-
-
-    self.setServoPulse(0,hpulse)
-    time.sleep(0.02)
-    self.setServoPulse(1,vpulse)
-    time.sleep(0.02)
-
-    
-    # self.setServoPulse(0,0)
-    # self.setServoPulse(1,0)
 
   def getPWM(self, channel):
     "Gets a single PWM channel"

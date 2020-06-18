@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 class AlphaBot:
-	def __init__(self,ain1=12,ain2=13,ena=6,bin1=20,bin2=21,enb=26):
+	def __init__(self,ain1=12,ain2=13,ena=6,bin1=20,bin2=21,enb=26, logfile=False):
 		self.AIN1 = ain1
 		self.AIN2 = ain2
 		self.BIN1 = bin1
@@ -25,6 +25,7 @@ class AlphaBot:
 		self.PWMA.start(self.PA)
 		self.PWMB.start(self.PB)
 		self.stop()
+		# if log file charge file to log
 
 	def forward(self):
 		self.PWMA.ChangeDutyCycle(self.PA)
@@ -33,7 +34,6 @@ class AlphaBot:
 		GPIO.output(self.AIN2,GPIO.HIGH)
 		GPIO.output(self.BIN1,GPIO.LOW)
 		GPIO.output(self.BIN2,GPIO.HIGH)
-
 
 	def stop(self):
 		self.PWMA.ChangeDutyCycle(0)
@@ -96,15 +96,4 @@ class AlphaBot:
 			self.PWMB.ChangeDutyCycle(0 - left)
 
 	def lookAt(self, theta, phi):
-		pass
-
-
-if __name__=='__main__':
-
-	Ab = AlphaBot()
-	Ab.forward()
-	try:
-		while True:
-			time.sleep(1)
-	except KeyboardInterrupt:
-		GPIO.cleanup()
+		print("Looking at : theta: %f, phi: %f"%(theta,phi))

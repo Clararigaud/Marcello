@@ -5,7 +5,7 @@
 # -*- coding:utf-8 -*-
 import RPi.GPIO as GPIO
 import time
-import AlphaBot_clara
+from AlphaBot2 import AlphaBot2
 CS = 5
 Clock = 25
 Address = 24
@@ -182,7 +182,7 @@ def edgeDetected():
 # Simple example prints accel/mag data once per second:
 if __name__ == '__main__':
 	TR = TRSensor()
-	Bot = AlphaBot_clara.AlphaBot2()
+	Bot = AlphaBot2()
 	Bot.setPWMA(8)
 	Bot.setPWMB(8)
 	while True:

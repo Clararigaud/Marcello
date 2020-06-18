@@ -1,10 +1,11 @@
 import RPi.GPIO as GPIO
 import time
-import AlphaBot
+from AlphaBot.py import AlphaBot
 
 class AlphaBot2(AlphaBot):
-	def __init__(self):
-		super().__init__()
+	pass
+	# def __init__(self):
+	# 	super().__init__()
 
-	# def lookAt(self, theta, phi):
-	# 	pass
+	# # def lookAt(self, theta, phi):
+	# # 	pass

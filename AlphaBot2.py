@@ -6,11 +6,10 @@ import time
 import math
 
 class AlphaBot2(AlphaBot):
-
 	def __init__(self):
-		super().__init__()
 		self.pwm = PCA9685(0x40, True)
 		self.pwm.setPWMFreq(50)
+		super().__init__()
 
 	def lookAt(self, theta, phi):
 		super().lookAt(theta, phi)

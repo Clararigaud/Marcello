@@ -5,8 +5,8 @@ import math
 
 class AlphaBot2(AlphaBot):
 
-	def __init__(self, *args, **kwargs):
-		super().__init__(args, kwargs)
+	def __init__(self):
+		super().__init__()
 		self.pwm = PCA9685(0x40, True)
 		self.pwm.setPWMFreq(50)
 

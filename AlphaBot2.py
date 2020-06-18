@@ -1,5 +1,7 @@
 from AlphaBot import AlphaBot
 from PCA9685 import PCA9685
+import RPi.GPIO as GPIO
+
 import time
 import math
 
@@ -18,3 +20,11 @@ class AlphaBot2(AlphaBot):
 		time.sleep(0.02)
 		self.pwm.setServoPulse(1,vpulse)
 		time.sleep(0.02)
+
+	def stop(self):
+		super().stop()
+		self.pwm.stop()
+		print("Bot stopping")
+
+	def capture_image(self):
+		super().capture_image()

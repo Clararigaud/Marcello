@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+from TRSensors import TRSensor
 
 class AlphaBot:
 	def __init__(self,ain1=12,ain2=13,ena=6,bin1=20,bin2=21,enb=26, logfile=False):
@@ -26,6 +27,7 @@ class AlphaBot:
 		self.PWMB.start(self.PB)
 		self.stop()
 		# if log file charge file to log
+		self.tr = TRSensor()
 
 	def forward(self):
 		self.PWMA.ChangeDutyCycle(self.PA)
@@ -97,3 +99,9 @@ class AlphaBot:
 
 	def lookAt(self, theta, phi):
 		print("Looking at : theta: %f, phi: %f"%(theta,phi))
+
+	def capture_image(self):
+		print("Taking a picture returns img location")
+
+	def getTRSensorsValue(self):
+		return self.tr.AnalogRead()

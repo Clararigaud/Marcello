@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-from AlphaBot.py import AlphaBot
+from AlphaBot import AlphaBot
 
 class AlphaBot2(AlphaBot):
 	pass

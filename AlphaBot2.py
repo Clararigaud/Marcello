@@ -12,9 +12,9 @@ class AlphaBot2(AlphaBot):
 
 	def lookAt(self, theta, phi):
 		super().lookAt(theta, phi)
-    	hpulse = ((theta+180)/360)*2000+500
-    	vpulse = ((-phi+180)/360)*2000+500
-    	self.pwm.setServoPulse(0,hpulse)
-    	time.sleep(0.02)
-    	self.pwm.setServoPulse(1,vpulse)
-    	time.sleep(0.02)
+		hpulse = ((theta+180)/360)*2000+500
+		vpulse = ((-phi+180)/360)*2000+500
+		self.pwm.setServoPulse(0,hpulse)
+		time.sleep(0.02)
+		self.pwm.setServoPulse(1,vpulse)
+		time.sleep(0.02)

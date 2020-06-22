@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
+from TRSensors import TRSensor
 from picamera import PiCamera
 
 class AlphaBot:

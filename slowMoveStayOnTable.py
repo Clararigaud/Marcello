@@ -3,7 +3,6 @@
 # -*- coding:utf-8 -*-
 import RPi.GPIO as GPIO
 import time
-from AlphaBot2 import AlphaBot2
 
 def edgeDetected(bot):
 	tableEdge = False
@@ -16,9 +15,14 @@ def edgeDetected(bot):
 	return tableEdge
 
 if __name__ == '__main__':
+
+	from AlphaBot2 import AlphaBot2
 	Bot = AlphaBot2()
-	Bot.setPWMA(8)  # Speed
-	Bot.setPWMB(8)
+
+	# from AlphaBot1 import AlphaBot1
+	# Bot = AlphaBot1()
+	Bot.setPWMAB(8)
+	
 	while True:
 		tableEdge = False
 		tableEdge  = edgeDetected(Bot)

@@ -1,4 +1,4 @@
-from Alphabot2 import Alphabot2
+from AlphaBot2 import AlphaBot2
+
 bot = Alphabot2()
-print("yo les bitches")
-bot.capture_image("efe")
+bot.capture_image("efe.jpg")

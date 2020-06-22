@@ -11,7 +11,7 @@ class AlphaBot2(AlphaBot):
 		self.pwm.setPWMFreq(50)
 		super().__init__()
 
-	def lookAt(self, theta, phi):
+	def lookAt(self, theta, phi): #ok
 		super().lookAt(theta, phi)
 		hpulse = ((theta+180)/360)*2000+500
 		vpulse = ((-phi+180)/360)*2000+500
@@ -20,14 +20,11 @@ class AlphaBot2(AlphaBot):
 		self.pwm.setServoPulse(1,vpulse)
 		time.sleep(0.02)
 
-	def stop(self):
+	def stop(self): # ok
 		super().stop()
 		self.pwm.stop()
 		print("Bot stopping")
 
-	def capture_image(self,dest):
+	def capture_image(self,dest): #ok
 		now = datetime.now()
-		filename = 'screenshot-%s.png'%(now.strftime("%m%d%Y%H%M%S"))
-		path = 'temp/'+filename
-		dest = "images/"
 		super().capture_image(dest)

@@ -108,7 +108,6 @@ class AlphaBot:
 		print("Looking at : theta: %f, phi: %f"%(theta,phi))
 
 	def capture_image(self, dest):
-
 		camera = PiCamera()
 		camera.resolution = (1024, 768)
 		#camera.start_preview()

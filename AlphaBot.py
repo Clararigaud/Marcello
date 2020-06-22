@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import time
+from time import sleep
 from TRSensors import TRSensor
 import picamera
 
@@ -80,6 +80,12 @@ class AlphaBot:
 		self.PB = value
 		self.PWMB.ChangeDutyCycle(self.PB)	
 		
+	def setPWMAB(self,value):
+		self.PA = value
+		self.PWMA.ChangeDutyCycle(self.PA)
+		self.PB = value
+		self.PWMB.ChangeDutyCycle(self.PB)	
+
 	def setMotor(self, left, right):
 		if((right >= 0) and (right <= 100)):
 			GPIO.output(self.AIN1,GPIO.HIGH)

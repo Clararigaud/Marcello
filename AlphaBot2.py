@@ -31,4 +31,3 @@ class AlphaBot2(AlphaBot):
 		path = 'temp/'+filename
 		dest = "images/"
 		super().capture_image(dest)
-

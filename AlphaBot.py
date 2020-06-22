@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 from TRSensors import TRSensor
+import picamera
 
 class AlphaBot:
 	def __init__(self,ain1=12,ain2=13,ena=6,bin1=20,bin2=21,enb=26, logfile=False):
@@ -100,8 +101,15 @@ class AlphaBot:
 	def lookAt(self, theta, phi):
 		print("Looking at : theta: %f, phi: %f"%(theta,phi))
 
-	def capture_image(self):
-		print("Taking a picture returns img location")
+	def capture_image(self, dest):
+		from picamera import PiCamera
+		camera = PiCamera()
+		camera.resolution = (1024, 768)
+		camera.start_preview()
+		print("SAY CHEEEESE")
+		# Camera warm-up time
+		sleep(2)
+		camera.capture(dest)
 
 	def getTRSensorsValue(self):
 		return self.tr.AnalogRead()

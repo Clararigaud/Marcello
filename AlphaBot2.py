@@ -7,6 +7,7 @@ import math
 
 class AlphaBot2(AlphaBot):
 	def __init__(self):
+		# special servo motor interface init
 		self.pwm = PCA9685(0x40, True)
 		self.pwm.setPWMFreq(50)
 		super().__init__()
